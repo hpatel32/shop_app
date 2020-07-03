@@ -4,6 +4,7 @@ import 'package:shop_app/Widgets/product_grid.dart';
 import 'package:provider/provider.dart';
 import 'package:shop_app/Providers/products.dart';
 import 'package:shop_app/Widgets/badge.dart';
+import 'package:shop_app/Screens/cart_screen.dart';
 
 class ProductOverviewScreen extends StatefulWidget {
   @override
@@ -47,7 +48,9 @@ class _ProductOverviewScreenState extends State<ProductOverviewScreen> {
               value: cart.itemCount.toString(),
             ),
             child:
-                IconButton(icon: Icon(Icons.shopping_cart), onPressed: () {}),
+                IconButton(icon: Icon(Icons.shopping_cart), onPressed: () {
+                  Navigator.of(context).pushNamed(CartScreen.routeName);
+                }),
           ),
         ],
       ),
