@@ -13,6 +13,32 @@ class ProductDetails extends StatelessWidget {
       appBar: AppBar(
         title: Text(product.title),
       ),
+      body: Column(
+        children: <Widget>[
+          Container(
+            child: Image.network(
+              product.imageUrl,
+              fit: BoxFit.cover,
+            ),
+            width: double.infinity,
+            height: 300,
+          ),
+          SizedBox(
+            height: 10,
+          ),
+          Text('\$${product.price}'),
+          SizedBox(
+            height: 10,
+          ),
+          Container(
+              alignment: Alignment.center,
+              width: double.infinity,
+              child: Text(
+                product.description,
+                softWrap: true,
+              )),
+        ],
+      ),
     );
   }
 }
