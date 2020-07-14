@@ -27,7 +27,7 @@ class UserProductsScreen extends StatelessWidget {
         child: ListView(
           children: <Widget>[
             for (var i = 0; i < productData.items.length; i++)
-              UserProductItem(
+              UserProductItem(productData.items[i].id,
                   productData.items[i].title, productData.items[i].imageUrl),
           ],
         ),

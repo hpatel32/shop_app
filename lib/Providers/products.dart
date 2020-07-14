@@ -62,7 +62,26 @@ class Products extends ChangeNotifier {
     return _loadedProducts.firstWhere((element) => element.id == id);
   }
 
-  void addProduct() {
+  void addProduct(Product prdt) {
+    final newProduct = Product(
+      id: DateTime.now().toString(),
+      title: prdt.title,
+      description: prdt.description,
+      price: prdt.price,
+      imageUrl: prdt.imageUrl,
+    );
+    _loadedProducts.add(newProduct);
+    notifyListeners();
+  }
+
+  void updateProduct(String id, Product newProduct) {
+    var indx = _loadedProducts.indexWhere((element) => element.id == id);
+    _loadedProducts[indx] = newProduct;
+    notifyListeners();
+  }
+
+  void deleteProduct(String id) {
+    _loadedProducts.removeWhere((element) => element.id == id);
     notifyListeners();
   }
 }
